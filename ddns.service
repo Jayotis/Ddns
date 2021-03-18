@@ -1,0 +1,10 @@
+[Unit]
+Description=updates dns records on ip changes
+Wants=cloud.timer
+
+[Service]
+Type=oneshot
+ExecStart=/home/usr/cloud_ddns.sh
+
+[Install]
+WantedBy=multi-user.target
