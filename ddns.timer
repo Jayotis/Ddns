@@ -1,9 +1,9 @@
 [Unit]
 Description=Logs some system statistics to the systemd journal
-Requires=cloud.service
+Requires=ddns.service
 
 [Timer]
-Unit=cloud.service
+Unit=ddns.service
 OnCalendar=*-*-* *:05:00
 RandomizedDelaySec=3600
 
