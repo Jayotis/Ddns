@@ -1,7 +1,10 @@
 #!/bin/sh /etc/rc.common
 
-# Dynamic IP updater ofr cloudflare. A simple ash script 
-# to run on a simple network device. 
+# Dynamic IP updater for cloudflare. A simple ash script 
+# to run on a simple network device. To save you a read it
+# does nothing except check for IP change at some random 
+# interval and sleep. Plays nice on the network.
+
 START=99  # The start priority
 # Replace with your details
 ZONE_ID=''
