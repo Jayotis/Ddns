@@ -9,7 +9,8 @@ START=99  # The start priority
 # Replace with your details
 ZONE_ID=''
 API_TOKEN=''
-
+DOMAIN=''
+SUBDOMAIN=''
 update_dns() {
     RECORD_NAME=$1
     LAST_IP_FILE="/tmp/last_ip_$RECORD_NAME"
@@ -58,11 +59,11 @@ start() {
     echo "Running Domain IP updater..."
     while true; do
 
-    if ! update_dns "www.governance.page"; then
+    if ! update_dns "$DOMAIN"; then
         return 1
     fi
 
-    if ! update_dns "governance.page"; then
+    if ! update_dns "$SUBDOMAIN"; then
         return 1
     fi
     # Random delay to make the update time somewhat unpredictable
