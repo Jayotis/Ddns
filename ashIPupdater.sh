@@ -53,6 +53,8 @@ update_dns() {
         return 1
     fi
     echo "Domain $RECORD_NAME IP Updated"
+    # Write IP to disk
+    echo "$CURRENT_IP" > "$LAST_IP_FILE"
     }
 
 start() {
