@@ -58,14 +58,6 @@ update_dns() {
 start() {
     echo "Running Domain IP updater..."
     while true; do
-
-    if ! update_dns "$DOMAIN"; then
-        return 1
-    fi
-
-    if ! update_dns "$SUBDOMAIN"; then
-        return 1
-    fi
     # Random delay to make the update time somewhat unpredictable
     # Delay will be between 450 (7.5 minutes) and 900 seconds (15 minutes)
     # RANDOM % 450 gives a range of 0-449, adding 450 sets the range to 450-899
@@ -73,6 +65,13 @@ start() {
     sleep $((450 + RANDOM % 450))
     # Fetch the current public IP
     CURRENT_IP=$(curl -4 -s http://ifconfig.me)
+    if ! update_dns "$DOMAIN"; then
+        return 1
+    fi
+
+    if ! update_dns "$SUBDOMAIN"; then
+        return 1
+    fi
     done
     }
 
