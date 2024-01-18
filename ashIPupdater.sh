@@ -52,7 +52,7 @@ update_dns() {
         echo "Update response: $UPDATE_RESPONSE"
         return 1
     fi
-    echo "Domain IP Updated"
+    echo "Domain $RECORD_NAME IP Updated"
     }
 
 start() {
